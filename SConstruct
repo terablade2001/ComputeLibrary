@@ -108,7 +108,7 @@ if env['arch'] == 'armv7a':
     env.Append(CXXFLAGS = ['-march=armv7-a', '-mthumb', '-mfpu=neon'])
 
     if env['os'] == 'linux':
-        prefix = "e:/linaro_6.3.1/bin/arm-linux-gnueabihf-g++.exe"
+        prefix = "arm-linux-gnueabihf-"
         env.Append(CXXFLAGS = ['-mfloat-abi=hard'])
     elif env['os'] == 'bare_metal':
         prefix = "arm-eabi-"
@@ -144,11 +144,16 @@ elif env['arch'] == 'x86_64':
     env.Append(CCFLAGS = ['-m64'])
     env.Append(LINKFLAGS = ['-m64'])
 
+compiler_path = os.environ.get('CXX_Path', '')
+
 if env['build'] == 'native':
     prefix = ""
+		compiler_path = ""
+
+prefix = compiler_path + prefix
 
 env['CC'] = prefix + os.environ.get('CC', 'gcc')
-env['CXX'] = prefix # + os.environ.get('CXX', 'g++')
+env['CXX'] = prefix + os.environ.get('CXX', 'g++')
 env['LD'] = prefix + "ld"
 env['AS'] = prefix + "as"
 env['AR'] = prefix + "ar"
