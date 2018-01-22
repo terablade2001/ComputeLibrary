@@ -1,32 +1,13 @@
+For the original forked project please refer here:
+https://github.com/ARM-software/ComputeLibrary
 
-Please report issues here: https://github.com/ARM-software/ComputeLibrary/issues
-Make sure you are using the latest version of the library before opening an issue. Thanks
+This project was modified thus to be able to be compiled in **Windows 10**.
+In order to compile do:
 
-Related projects:
+1. Download scons 3.0.1 (or later): https://sourceforge.net/projects/scons/files/scons/
+2. Use an appropriate Python packet (I've tested with 2.7.11 and 3.6.4).
+3. Install scons to your python (e.g. `/c/scons/python config.py install`)
+4. Use Git-Bash for compiling and set the path your cross-compiler tools (e.g. arm-linux-gnueabihf-gcc.exe, etc) as environmental variable. E.g. `export CXX_Path=/e/linaro_6.3.1/bin/`.
+5. Call the _scons.py_ from your python packet with your desirable variables: 
+   `/c/Programs/Python/Python_3_6/Scripts/scons.py Werror=1 debug=0 neon=1 opencl=0 os=linux arch=armv7a`
 
-- [Caffe on Compute Library](https://github.com/OAID/caffeOnACL)
-- [Tutorial: Cartoonifying Images on Raspberry Pi with the Compute Library](https://community.arm.com/graphics/b/blog/posts/cartoonifying-images-on-raspberry-pi-with-the-compute-library)
-
-Documentation available here:
-
-- [v17.12](https://arm-software.github.io/ComputeLibrary/v17.12/)
-- [v17.10](https://arm-software.github.io/ComputeLibrary/v17.10/)
-- [v17.09](https://arm-software.github.io/ComputeLibrary/v17.09/)
-- [v17.06](https://arm-software.github.io/ComputeLibrary/v17.06/)
-- [v17.05](https://arm-software.github.io/ComputeLibrary/v17.05/)
-- [v17.04](https://arm-software.github.io/ComputeLibrary/v17.04/)
-- [v17.03.1](https://arm-software.github.io/ComputeLibrary/v17.03.1/)
-
-Binaries available here:
-
-- [v17.12](https://github.com/ARM-software/ComputeLibrary/releases/download/v17.12/arm_compute-v17.12-bin.tar.gz)
-- [v17.10](https://github.com/ARM-software/ComputeLibrary/releases/download/v17.10/arm_compute-v17.10-bin.tar.gz)
-- [v17.09](https://github.com/ARM-software/ComputeLibrary/releases/download/v17.09/arm_compute-v17.09-bin.tar.gz)
-- [v17.06](https://github.com/ARM-software/ComputeLibrary/releases/download/v17.06/arm_compute-v17.06-bin.tar.gz)
-- [v17.05](https://github.com/ARM-software/ComputeLibrary/releases/download/v17.05/arm_compute-v17.05-bin.tar.gz)
-- [v17.04](https://github.com/ARM-software/ComputeLibrary/releases/download/v17.04/arm_compute-v17.04-bin.tar.gz)
-- [v17.03.1](https://github.com/ARM-software/ComputeLibrary/releases/download/v17.03.1/arm_compute-v17.03.1-bin.tar.gz)
-
-Support: developer@arm.com
-
-License & Contributions: The software is provided under MIT license. Contributions to this project are accepted under the same license.
