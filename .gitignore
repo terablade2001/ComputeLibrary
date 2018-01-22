@@ -1,3 +1,4 @@
 /build
 ..dblite
 /src/core/arm_compute_version.embed
+/src/runtime/arm_compute_version.embed

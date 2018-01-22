@@ -123,12 +123,12 @@ def create_version_file(target, source, env):
     with open(target[0].get_path(), "w") as fd:
         fd.write(build_info)
 
-
 arm_compute_env = env.Clone()
 # Don't allow undefined references in the libraries:
 arm_compute_env.Append(LINKFLAGS=['-Wl,--no-undefined','-Wl,--no-allow-shlib-undefined'])
 
 generate_embed = [ arm_compute_env.Command("../src/core/arm_compute_version.embed", "", action=create_version_file) ]
+generate_embed = [ arm_compute_env.Command("../src/runtime/arm_compute_version.embed", "", action=create_version_file) ]
 arm_compute_env.Append(CPPPATH =[Dir("./src/core/").path] )
 
 if env["os"] not in ["android", "bare_metal"]:
